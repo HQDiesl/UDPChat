@@ -42,45 +42,24 @@
 
 *********************************************************
 
-Invocation:
+Harrison Diesl, Jawaun McKelvey, William Luttrell
 
-This invokes the server, specifying port 5000
-./server <port> <debugLevel>
-Example:  ./server 5000 1 ; #debug level  1 to just show warnings
+TO OPERATE THE SERVER:
+	1. First retrieve your IP using ifconfig. If using a VM, make sure network settings are set to Bridged Adapter.
+	2. Distribute this IP to anyone who wishes to connect, as well as a port number you wish to use.
+	3. Run the server with "./server <port> <debugFlag>"
+	4. The server window will loop and indicate when a new user connects.  A user who disconnects then reconnects is listed as new.
+	5. The server will also create a log file to keep a record of the entire chat. This will only be available to the user running the server.
+	6. Users who attempt to connect past the limit will be dropped.
+	7. To exit, issue a CNT-C
 
-This invokes the client, specifying the server name as localhost (ie., the
-server runs on the same machiine), server port 5000,  an iteration
-delay of 1 second, a message size of 1000 bytes, and 100 iterations.
-./client server serverPort <iteration delay>  <message size> <numberIterations> <debugLevel>
-Example : ./client localhost 5000 1000000 1000 100 130
-
-The client shows the following output ....
-  to standard out if debugLevel is >=2
-  and to RTT.dat if the 8th bit of debugLevel is set (so effectively if debugLevel >=128
-
-timestamp       RTT sample smoothedRTT RxSeqNumber largestSeqNumberSent #outOforder #Lost
-1487747591.227005 0.002747 0.001373 1 1 0 0
-1487747592.229611 0.002295 0.001834 2 2 0 0
-1487747593.295905 0.066198 0.034016 3 3 0 0
-1487747594.320419 0.024117 0.029067 4 4 0 0
-1487747595.344165 0.023650 0.026358 5 5 0 0
-1487747596.368747 0.024425 0.025392 6 6 0 0
-
-
-Avg Ping: 184 microseconds Loss: 0 Percent
-
-The server show no summary information.
-
-*********************************************************
-
-
-
-*********************************************************
-
-TODO's:
--better testing for strange socket errors
--explore the use of more accurate delays
-   (e.g., evaluate usleep, nanosleep, or select )
-
+TO OPERATE THE CLIENT:
+	1. Get the IP and port of the server you will connect to
+	2. Run the client with "./client <serverIP> <port> <username>" where username is the name you wish to display to other users
+	3. A child terminal will open labeled "CHAT BOARD". Click away from this terminal back to your main one--this terminal will function as a board to display all messages and mirrors what everyone online sees.
+	4. Input messages in the command prompt of your main terminal, send using enter.  NOTE: apostrophes and quotations that are not bounded will throw an error and you will need to resend.
+	5. If the connection is lost, you will have 5 attempts to reconnect by sending messages.  After that your client will be closed due to a non-recoverable connection.
+	6. To exit the program, issue a CNT-C to your main terminal. This will be confirmed in the chat board with the message "CONNECTION CLOSED".
+	7. Close the chat board by exiting out or issuing a CNT-C. Note that the chat log record is removed once disconnected,
 
 *********************************************************
