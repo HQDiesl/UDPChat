@@ -44,6 +44,8 @@
 
 Harrison Diesl, Jawaun McKelvey, William Luttrell
 
+Run the makefile before doing either of the following.
+
 TO OPERATE THE SERVER:
 	1. First retrieve your IP using ifconfig. If using a VM, make sure network settings are set to Bridged Adapter.
 	2. Distribute this IP to anyone who wishes to connect, as well as a port number you wish to use.
